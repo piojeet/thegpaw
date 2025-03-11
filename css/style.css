@@ -288,25 +288,32 @@ body {
 }
 
 .hero__images img {
-    position: relative;
     opacity: 0;
 }
 
 .hero__image1 {
     z-index: 5;
-    height: 60%;
+    width: 35%;
+    position: absolute;
+    bottom: 0;
+    left: 53%;
+    transform: translateX(-50%);
 }
 
 .hero__image2 {
-    left: 15%;
+    left: 23%;
+    bottom: 0;
     z-index: 3;
-    height: 45%;
+    width: 20%;
+    position: absolute;
 }
 
 .hero__image3 {
-    right: 15%;
+    right: 23%;
+    bottom: 0;
     z-index: 3;
-    height: 45%;
+    width: 12%;
+    position: absolute;
 }
 
 .side__tag {
@@ -819,7 +826,8 @@ footer {
     }
 
     .hero__image2 {
-        width: 30vw;
+        width: 27vw;
+        left: 16%;
         -o-object-fit: contain;
         object-fit: contain;
         -o-object-position: bottom;
@@ -827,17 +835,17 @@ footer {
     }
 
     .hero__image3 {
-        width: 20vw;
+        width: 17vw;
         -o-object-fit: contain;
         object-fit: contain;
         -o-object-position: bottom;
         object-position: bottom;
-        right: 21%;
+        right: 16%;
         height: auto;
     }
 
     .hero__image1 {
-        width: 50vw;
+        width: 55vw;
         -o-object-fit: contain;
         object-fit: contain;
         -o-object-position: bottom;
@@ -921,7 +929,7 @@ footer {
 
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 450px) {
     .hero__section {
         height: 100vw;
     }
@@ -968,11 +976,15 @@ footer {
     }
 
     .hero__image1 {
-        width: 60vw;
+        width: 68vw;
     }
 
     .hero__image2 {
-        left: 8%;
+        left: 6%;
+    }
+
+    .hero__image3 {
+        right: 7%;
     }
 
     .music__list {
@@ -985,5 +997,40 @@ footer {
 @media only screen and (max-width: 375px) {
     .header__nav-link {
         font-size: 35px;
+    }
+}
+
+
+@media only screen and (min-width: 1900px) {
+    .hero__image1 {
+        width: 57%;
+    }
+
+    .hero__image2 {
+        left: 8%;
+        width: 30%;
+    }
+
+    .hero__image3 {
+        right: 8%;
+        width: 17%;
+        position: absolute;
+    }
+}
+
+
+@media only screen and (min-width: 1600px) and (max-height: 1200px){
+    .hero__image1 {
+        width: 56%;
+    }
+
+    .hero__image2 {
+        left: 15%;
+        width: 26%;
+    }
+
+    .hero__image3 {
+        right: 15%;
+        width: 16%;
     }
 }
