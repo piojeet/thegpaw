@@ -1,0 +1,988 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+:root {
+    --primary-color: #0b0b0b;
+    --secondary-color: #433b33;
+    --accent-color: #fff;
+    --text-color: #f7f9f6;
+    --dark-bg: #2D241D;
+}
+
+@font-face {
+    font-family: 'Avenir-next-regular';
+    src: url('../Fonts/AvenirNextLTW01RegularRegular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'proximanova';
+    src: url('../Fonts/Proxima\ Nova\ Font.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Avenir-italic';
+    src: url('../Fonts/Avenir.ttc') format('truetype');
+}
+
+@font-face {
+    font-family: 'Rankings';
+    src: url('../Fonts/Rankings\ Caps.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Avellion';
+    src: url('../Fonts/North\ Avellion.otf') format('truetype');
+}
+
+.header {
+    padding: 1.5rem;
+    height: 13rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -webkit-transition: height 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    -o-transition: height 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    transition: height 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    z-index: 100;
+}
+
+.header__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: end;
+    position: relative;
+}
+
+.header__logo-wrapper {
+    position: absolute;
+    height: 90%;
+    bottom: 0;
+    padding: 1.5rem 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;
+}
+
+.header__rewards-text {
+    font-size: 16px;
+    color: var(--accent-color);
+    font-family: proximanova;
+}
+
+.header__rewards-amount {
+    font-size: 33px;
+    color: var(--accent-color);
+    font-family: proximanova;
+    margin-top: 5px;
+}
+
+.header__logo {
+    height: 100%;
+    position: relative;
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+}
+
+.header__logo img {
+    height: 100%;
+    /* filter: invert(1); */
+
+}
+
+.header__nav-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: end;
+    gap: 1rem;
+    list-style: none;
+    padding-bottom: 10px;
+}
+
+
+.header__nav-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 14px;
+    position: relative;
+    font-family: Avenir-next-regular;
+}
+
+
+.header__nav-link::after,
+.footer__nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-color);
+    -webkit-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: right;
+    -ms-transform-origin: right;
+    transform-origin: right;
+    -webkit-transition: -webkit-transform 0.2s ease-in-out;
+    transition: -webkit-transform 0.2s ease-in-out;
+    -o-transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+
+.header__nav-link:hover::after,
+.footer__nav-link:hover::after {
+    -webkit-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: left;
+    -ms-transform-origin: left;
+    transform-origin: left;
+}
+
+.header__nav-item {
+    line-height: 1;
+}
+
+.header__nav-separator {
+    width: 1px;
+    background-color: var(--accent-color);
+}
+
+.hamburger__menu {
+    width: 2.5rem;
+    height: 2rem;
+    /* background-color: red; */
+    position: relative;
+    cursor: pointer;
+    display: none;
+}
+
+.hamburger__menu--active {
+    /* background: pink; */
+    /* width: 1.8rem; */
+}
+
+.menu__1 {
+    position: absolute;
+    width: 2.5rem;
+    height: 4px;
+    background: var(--text-color);
+    top: 0;
+    right: 0;
+    border-radius: 3rem;
+    -webkit-transform-origin: top right;
+    -ms-transform-origin: top right;
+    transform-origin: top right;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.hamburger__menu--active .menu__1 {
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.menu__2 {
+    position: absolute;
+    width: 2rem;
+    height: 4px;
+    background: var(--text-color);
+    top: 50%;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-radius: 3rem;
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+}
+
+.hamburger__menu--active .menu__2 {
+    opacity: 0;
+}
+
+.menu__3 {
+    position: absolute;
+    width: 2.5rem;
+    height: 4px;
+    background: var(--text-color);
+    bottom: 0;
+    right: 0;
+    border-radius: 3rem;
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+
+.hamburger__menu--active .menu__3 {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 2.5rem;
+}
+
+
+.hamburger__menu:hover .menu__2 {
+    width: 2.5rem;
+}
+
+
+.hero__section {
+    width: 100%;
+    height: 100vh;
+    background: url('../assets/Layer\ 11.svg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero__images {
+    position: absolute;
+    bottom: -4px;
+    height: 100%;
+    -ms-flex-line-pack: end;
+    align-content: end;
+    max-width: 1100px;
+    width: 100%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    /* background-color: red; */
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero__images img {
+    position: relative;
+    opacity: 0;
+}
+
+.hero__image1 {
+    z-index: 5;
+    height: 60%;
+}
+
+.hero__image2 {
+    left: 15%;
+    z-index: 3;
+    height: 45%;
+}
+
+.hero__image3 {
+    right: 15%;
+    z-index: 3;
+    height: 45%;
+}
+
+.side__tag {
+    width: 2.5rem;
+    height: 8rem;
+    background: var(--secondary-color);
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-right: 2px solid #757575;
+    padding: 6px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.side__tag img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+
+.music__section {
+    background: var(--secondary-color);
+    padding: 2rem 0;
+}
+
+.music__title {
+    font-family: Avenir-italic;
+    font-style: italic;
+    font-size: 38px;
+    text-align: center;
+    color: var(--accent-color);
+    padding: 0 1rem;
+}
+
+.music__content {
+    margin-top: 5rem;
+}
+
+.music__points {
+    background: var(--dark-bg);
+    font-size: 22px;
+    font-family: Avenir-next-regular;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #fdfcfb;
+    padding: 7px 1rem;
+    margin-bottom: 2rem;
+}
+
+.spacer-line {
+    width: 2px;
+    background-color: var(--accent-color);
+    opacity: 0.5;
+}
+
+.music__points p {
+    opacity: 0.180;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 1rem;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.music__list {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 2rem 1fr 2rem 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.music__image img {
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.music__image {
+    overflow: hidden;
+    aspect-ratio: 1/1;
+}
+
+.music__image:hover img {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.music__song-title {
+    font-size: 29px;
+    font-family: Avenir-next-regular;
+    color: var(--accent-color);
+    text-align: center;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+.music__dic-btn {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 2rem auto;
+    display: block;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-family: Avenir-next-regular;
+    text-decoration: none;
+    color: var(--accent-color);
+    background: var(--primary-color);
+    padding: 10px 20px;
+    border: 2px solid var(--primary-color);
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.music__dic-btn:hover {
+    color: var(--primary-color);
+    background: var(--accent-color);
+}
+
+.music__logos {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.music__logos img {
+    width: 100%;
+}
+
+.merch__section {
+    background: var(--primary-color);
+    padding: 5rem 1rem;
+}
+
+.merch__items {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.merch__item {
+    max-width: 250px;
+    width: 100%;
+    /* background-color: red; */
+}
+
+.merch__image img {
+    width: 100%;
+}
+
+.merch__price {
+    outline: none;
+    border: none;
+    display: block;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 18px;
+    font-family: Avenir-next-regular;
+    padding: 5px 25px;
+    background: var(--secondary-color);
+    color: var(--accent-color);
+}
+
+.merch__details {
+    margin: 1rem 0;
+}
+
+.merch__name {
+    text-align: center;
+    color: var(--accent-color);
+    font-size: 22px;
+    font-family: Avenir-next-regular;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+.merch__shop-link {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 2rem auto;
+    display: block;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-family: Avenir-next-regular;
+    text-decoration: none;
+    color: var(--accent-color);
+    background: var(--secondary-color);
+    padding: 10px 20px;
+    border: 2px solid var(--secondary-color);
+    -webkit-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.merch__shop-link:hover {
+    background: var(--text-color);
+    color: var(--primary-color);
+}
+
+.merch__discount {
+    margin-top: 6rem;
+}
+
+.merch__discount-text {
+    text-align: center;
+    color: var(--text-color);
+    font-size: 38px;
+    font-family: Avenir-next-regular;
+}
+
+.merch__form-group {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 2px;
+    margin-top: 1rem;
+}
+
+.merch__input {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-family: Avenir-next-regular;
+    padding: 10px;
+    outline: none;
+}
+
+.merch__input::-webkit-input-placeholder {
+    color: var(--secondary-color);
+}
+
+.merch__input::-moz-placeholder {
+    color: var(--secondary-color);
+}
+
+.merch__input:-ms-input-placeholder {
+    color: var(--secondary-color);
+}
+
+.merch__input::-ms-input-placeholder {
+    color: var(--secondary-color);
+}
+
+.merch__input::placeholder {
+    color: var(--secondary-color);
+}
+
+.merch__submit {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 3.2rem;
+    aspect-ratio: 1/1;
+    background: var(--secondary-color);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.merch__submit img {
+    width: 100%;
+}
+
+footer {
+    background: var(--secondary-color);
+    padding: 2rem 1rem;
+}
+
+.footer__logo {
+    width: 5rem;
+    margin: 0 auto;
+
+}
+
+.footer__logo img {
+    width: 100%;
+}
+
+.footer__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    gap: 1rem;
+    list-style: none;
+}
+
+.footer__nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-family: Rankings;
+    letter-spacing: 1px;
+    font-size: 20px;
+    position: relative;
+}
+
+.footer__nav-separator {
+    width: 2px;
+    background: var(--text-color);
+}
+
+.footer__nav-item {
+    line-height: 1;
+    padding: 2px 0;
+}
+
+.footer__brand {
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 70px;
+    color: var(--text-color);
+    font-family: Avellion;
+}
+
+.footer__social {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 1rem;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.footer__social-item {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+.footer__social-item a {
+    display: block;
+    width: 35px;
+    height: 35px;
+    padding: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+.footer__social-item a img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}
+
+.footer__copyright {
+    text-align: center;
+    color: var(--text-color);
+    opacity: .5;
+    font-size: 21px;
+    font-family: Avenir-next-regular;
+}
+
+
+
+.container-loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    top: 0;
+    left: 0;
+    z-index: 222;
+    /* display: none; */
+}
+
+/* White Line */
+.white-line {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--text-color);
+    z-index: 7;
+}
+
+/* Green Line */
+.green-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center;
+    z-index: 10;
+}
+
+/* Counter */
+.counter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    font-weight: bold;
+    color: var(--text-color);
+    z-index: 5;
+    font-family: Avenir-next-regular;
+}
+
+
+@media only screen and (max-width: 1024px) {
+    .header__rewards {
+        display: none;
+    }
+
+    .header__logo-wrapper {
+        position: static;
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0);
+        padding: 0;
+        height: 100%;
+    }
+
+    .header {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: start;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: 1rem;
+        height: 8rem;
+    }
+
+    .header__nav {
+        padding: 1rem 0;
+    }
+
+    .merch__items {
+        max-width: 750px;
+    }
+
+    .music__title {
+        font-size: 30px;
+    }
+
+    .hero__images {
+        white-space: nowrap;
+    }
+
+    .header__nav-list {
+        padding-bottom: 0;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .hamburger__menu {
+        display: block;
+    }
+
+    .hero__image2 {
+        width: 30vw;
+        -o-object-fit: contain;
+        object-fit: contain;
+        -o-object-position: bottom;
+        object-position: bottom;
+    }
+
+    .hero__image3 {
+        width: 20vw;
+        -o-object-fit: contain;
+        object-fit: contain;
+        -o-object-position: bottom;
+        object-position: bottom;
+        right: 21%;
+        height: auto;
+    }
+
+    .hero__image1 {
+        width: 50vw;
+        -o-object-fit: contain;
+        object-fit: contain;
+        -o-object-position: bottom;
+        object-position: bottom;
+    }
+
+    .hero__images {
+        /* width: unset; */
+        left: 0;
+        /* background-color: red; */
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    .header__nav {
+        position: fixed;
+        width: 60%;
+        right: -100%;
+        top: 80px;
+        background: var(--primary-color);
+        height: calc(100% - 80px);
+    }
+
+    .header__nav-list {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 1.2rem;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .header__nav-separator {
+        display: none;
+    }
+
+    .header__nav-link {
+        font-size: 40px;
+    }
+
+    .footer__nav {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .footer__nav-separator {
+        display: none;
+    }
+
+    .footer__social {
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: (2rem)[4];
+        grid-template-columns: repeat(4, 2rem);
+    }
+
+    .footer__copyright {
+        font-size: 14px;
+    }
+
+    .merch__item {
+        max-width: 38vw;
+    }
+
+    .music__song-title {
+        font-size: 20px;
+    }
+
+
+    .header__nav-item {
+        opacity: 0;
+    }
+
+}
+
+@media only screen and (max-width: 425px) {
+    .hero__section {
+        height: 100vw;
+    }
+
+    .music__title {
+        font-size: 22px;
+    }
+
+    .music__points {
+        font-size: 14px;
+    }
+
+    .music__list {
+        gap: 1rem;
+    }
+
+    .merch__name {
+        font-size: 15px;
+    }
+
+    .merch__item {
+        max-width: 40vw;
+    }
+
+    .merch__discount-text {
+        font-size: 30px;
+    }
+
+    .merch__input {
+        font-size: 16px;
+    }
+
+    .merch__submit {
+        -ms-flex-negative: unset;
+        flex-shrink: unset;
+    }
+
+    .music__content {
+        margin-top: 3rem;
+    }
+
+    .header__nav {
+        width: 85%;
+    }
+
+    .hero__image1 {
+        width: 60vw;
+    }
+
+    .hero__image2 {
+        left: 8%;
+    }
+
+    .music__list {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2.5rem;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .header__nav-link {
+        font-size: 35px;
+    }
+}
